@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO-оптимизация для Омска -->
+    <title>Тёплый отпечаток — Портреты на холсте, 3D-фигурки, баннеры в Омске</title>
+    <meta name="description" content="Печать портретов по фото на холсте, футболках, кружках. Изготовление 3D-фигурок, баннеров, гравировка и постеры. Быстро и с любовью. Работаем в Омске.">
+    <meta name="keywords" content="печать на холсте Омск, 3D фигурки Омск, баннеры Омск, печать на футболках Омск, гравировка Омск, подарок по фото Омск">
+    
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Базовые настройки */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #fcf8f5;
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Плавная прокрутка к якорям */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            background: #d81b60;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #ad1457;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #d81b60;
+            border: 2px solid #d81b60;
+            box-shadow: none;
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background: #d81b60;
+            color: white;
+        }
+
+        /* --- Первый экран (Hero) --- */
+        .hero {
+            background-image: url('banner.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f6efe9;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 50px 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.4); 
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-family: 'Caveat', cursive;
+            color: #d81b60;
+            font-size: 5rem;
+            line-height: 0.9;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+        }
+
+        .hero p.subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .hero .city-tag {
+            display: inline-block;
+            background: #d81b60;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .services-list {
+            list-style: none;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        
+        .services-list li {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .services-list li::after {
+            content: '•';
+            color: #d81b60;
+            margin-left: 10px;
+        }
+        .services-list li:last-child::after {
+            display: none;
+        }
+
+        /* --- Блок с преимуществами --- */
+        .features {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Caveat', cursive;
+            font-size: 3.5rem;
+            color: #d81b60;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #f0e6e0;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* --- БЛОК: ГАЛЕРЕЯ --- */
+        .gallery-section {
+            padding: 80px 0;
+            background: #fcf8f5;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            aspect-ratio: 4 / 3;
+            background-color: #eee;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* --- Блок формы --- */
+        .order-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fdfbfb 0%, #f6efe9 100%);
+            text-align: center;
+        }
+
+        .order-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background: #fff;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #d81b60;
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .order-note {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* --- Подвал --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #333;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* --- Адаптивность --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero-content {
+                padding: 30px;
+                margin: 0 10px;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 10px;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ГЛАВНЫЙ ЭКРАН (HERO) -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- Город в главном блоке для SEO -->
+                <span class="city-tag">📍 Работаем в Омске</span>
+                
+                <h1>Тёплый<br>отпечаток</h1>
+                <p class="subtitle">Портреты по фото на холсте и не только</p>
+                
+                <ul class="services-list">
+                    <li>Портреты на холсте</li>
+                    <li>Печать на футболках</li>
+                    <li>Печать на кружках</li>
+                    <li>3D-фигурки</li>
+                    <li>Баннеры</li>
+                    <li>Гравировка</li>
+                    <li>Постеры</li>
+                </ul>
+
+                <div>
+                    <a href="#order" class="btn">Заказать подарок</a>
+                    <a href="#gallery" class="btn btn-outline">Посмотреть работы</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК ПРЕИМУЩЕСТВ -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас?</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">❤️</div>
+                    <h3>С любовью от души</h3>
+                    <p>Каждый заказ мы делаем так, будто создаем его для себя. Внимание к каждой детали.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⏱️</div>
+                    <h3>Быстрые сроки</h3>
+                    <p>Изготовим ваш подарок в кратчайшие сроки, чтобы вы не опоздали с поздравлением.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✨</div>
+                    <h3>Качество Wow</h3>
+                    <p>Используем только качественные материалы и современное оборудование для печати.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК: ГАЛЕРЕЯ РАБОТ -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Наши работы</h2>
+            <div class="gallery-grid">
+                
+                <!-- Картинка 1 -->
+                <div class="gallery-item">
+                    <img src="work1.jpg" alt="Портрет на холсте Омск" onerror="this.src='https://via.placeholder.com/400x300/f6efe9/d81b60?text=Портрет+на+холсте'">
+                </div>
+                
+                <!-- Картинка 2 -->
+                <div class="gallery-item">
+                    <img src="work2.jpg" alt="Печать на кружке Омск" onerror="this.src='https://via.placeholder.com/400x300/f6efe9/d81b60?text=Печать+на+кружке'">
+                </div>
+
+                <!-- Картинка 3 -->
+                <div class="gallery-item">
+                    <img src="work3.jpg" alt="3D фигурка по фото Омск" onerror="this.src='https://via.placeholder.com/400x300/f6efe9/d81b60?text=3D-фигурка'">
+                </div>
+
+                <!-- Картинка 4 -->
+                <div class="gallery-item">
+                    <img src="work4.jpg" alt="Баннер на заказ Омск" onerror="this.src='https://via.placeholder.com/400x300/f6efe9/d81b60?text=Баннер'">
+                </div>
+
+                <!-- Картинка 5 -->
+                <div class="gallery-item">
+                    <img src="work5.jpg" alt="Гравировка Омск" onerror="this.src='https://via.placeholder.com/400x300/f6efe9/d81b60?text=Гравировка'">
+                </div>
+
+                <!-- Картинка 6 -->
+                <div class="gallery-item">
+                    <img src="work6.jpg" alt="Постер по фото Омск" onerror="this.src='https://via.placeholder.com/400x300/f6efe9/d81b60?text=Постер'">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК ЗАКАЗА -->
+    <section class="order-section" id="order">
+        <div class="container">
+            <h2 class="section-title">Сделать заказ в Омске</h2>
+            
+            <form class="order-form" action="https://formspree.io/f/ВАШ_ID" method="POST">
+                <!-- ВАЖНО: Замените ВАШ_ID на реальный ID формы с formspree.io -->
+                
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" required placeholder="Как к вам обращаться?">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Телефон или WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 000-00-00">
+                </div>
+
+                <div class="form-group">
+                    <label for="product">Что хотите заказать?</label>
+                    <select id="product" name="product" required>
+                        <option value="" disabled selected>Выберите услугу...</option>
+                        <option value="Портрет на холсте">Портрет на холсте</option>
+                        <option value="Печать на футболке">Печать на футболке</option>
+                        <option value="Печать на кружке">Печать на кружке</option>
+                        <option value="3D-фигурка">3D-фигурка</option>
+                        <option value="Баннер">Баннер</option>
+                        <option value="Гравировка">Гравировка</option>
+                        <option value="Постер">Постер</option>
+                        <option value="Другое">Другое</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn form-submit">Отправить заявку</button>
+                <p class="order-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <p><strong>Тёплый отпечаток</strong> — печать на холсте, 3D-фигурки и баннеры в Омске.</p>
+        <p>&copy; 2024 Все права защищены. Работаем по всей России с доставкой.</p>
+    </footer>
+
+</body>
+</html>
